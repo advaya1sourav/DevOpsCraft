@@ -4,13 +4,13 @@ variable "project" {
   
 }
 
-variable "env" {
+variable "environmnet" {
     type = string
     default = "dev"  // Add your environmnet name
   
 }
 
-variable "vpc1_cidr" {
+variable "vpc_cidr" {
     type = string
     default = "172.16.0.0/16" // Add your VPC CIDR range
 }
