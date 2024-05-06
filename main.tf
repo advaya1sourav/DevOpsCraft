@@ -49,6 +49,9 @@ resource "aws_subnet" "priv_sub_2" {
 
  resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.vpc1.id
+    tags = {
+      Name = join("-", [var.project,var.env,"igw"])
+        }    
    
  }
 
@@ -63,12 +66,19 @@ resource "aws_route_table" "public_rtb" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
+  tags = {
+    Name = join("-", [var.project,var.env,"public_rtb"])
+      }    
   
 }
 
 
 resource "aws_eip" "Nat-Gateway-EIP" {
   vpc = true
+  tags = {
+    Name = join("-", [var.project,var.env,"Nat-Gateway-EIP"])
+      }   
+   
 }
  
 
@@ -78,7 +88,9 @@ resource "aws_nat_gateway" "nat" {
   ]
   subnet_id = aws_subnet.pub_sub_1.id
   allocation_id = aws_eip.Nat-Gateway-EIP.id
-
+  tags = {
+    Name = join("-", [var.project,var.env,"Nat-Gateway"])
+      } 
   
 }
 
@@ -90,6 +102,9 @@ resource "aws_route_table" "private_rtb" {
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.nat.id
+      }
+  tags = {
+    Name = join("-", [var.project,var.env,"private_rtb"])
       }
 }
 

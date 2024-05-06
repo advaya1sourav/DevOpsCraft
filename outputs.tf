@@ -1,19 +1,19 @@
-output "vpc1_id" {
+output "vpc_id" {
   value = aws_vpc.vpc1.id
 }
 
-output "vpc2_cidr" {
+output "vpc_cidr" {
   value = aws_vpc.vpc1.cidr_block
 }
 
-output "priv_sub_1" {
+output "private_sub_1" {
 
   value = aws_subnet.priv_sub_1.id
 
   
 }
 
-output "priv_sub_2" {
+output "private_sub_2" {
 
   value = aws_subnet.priv_sub_2.id
 
@@ -21,9 +21,16 @@ output "priv_sub_2" {
 }
 
 
-output "pub_sub_1" {
+output "public_sub_1" {
 
   value = aws_subnet.pub_sub_1.id
+
+  
+}
+
+output "public_sub_2" {
+
+  value = aws_subnet.pub_sub_2.id
 
   
 }
