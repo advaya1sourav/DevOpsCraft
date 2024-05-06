@@ -5,13 +5,18 @@
 <p id="description">This project contains Terraform code to set up a Virtual Private Cloud (VPC) in AWS with multiple subnets a NAT gateway and an Internet gateway. It provides a basic network infrastructure designed for high availability and secure network operations.</p>
 
 
-<p id="Key Components">
+
 VPC: A virtual network with a specified CIDR block to host other AWS resources.
+
 Public Subnets: Two subnets with public IP addresses for internet-accessible resources, each in a different Availability Zone.
+
 Private Subnets: Two subnets without public IP addresses for secure, internal-only resources, each in a different Availability Zone.
+
 Internet Gateway: Enables internet access for resources within public subnets.
+
 NAT Gateway: Provides internet access for resources in private subnets without exposing them directly to the public internet.
-Route Tables: Separate routing configurations for public and private subnets, with associations to ensure proper routing through gateways</p>
+
+Route Tables: Separate routing configurations for public and private subnets, with associations to ensure proper routing through gateways
  
 
 <h2>🛠️ Installation Steps:</h2>
