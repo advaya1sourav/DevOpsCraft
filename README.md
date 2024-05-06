@@ -5,10 +5,7 @@
 <p id="description">This project contains Terraform code to set up a Virtual Private Cloud (VPC) in AWS with multiple subnets a NAT gateway and an Internet gateway. It provides a basic network infrastructure designed for high availability and secure network operations.</p>
 
   
-  
-<h2>🧐 Features</h2>
-
-Here're some of the project's best features:
+ 
 
 <h2>🛠️ Installation Steps:</h2>
 
@@ -33,7 +30,13 @@ git clone https://github.com/advaya1sourav/DevOpsCraft.git
 <p>4. change variables.tf file</p>
 
 ```
-project
+"project": project name
+"environment": environment  name
+"vpc_cidr": VPC CIDR
+"pub_sub_1_cidr": public subnet1 CIDR
+"pub_sub_2_cidr": public subnet2 CIDR
+"priv_sub_1_cidr": priv subnet1 CIDR
+"priv_sub_2_cidr": priv subnet2 CIDR
 ```
 
 <p>5. initialize terraform</p>
@@ -51,5 +54,10 @@ terraform apply --auto-approve
 <p>7. sample output</p>
 
 ```
-private_sub_1 = "subnet-041150e8ff8ca2be7" private_sub_2 = "subnet-07a9674276991c52f" public_sub_1 = "subnet-04dccb09bb97aba9a" public_sub_2 = "subnet-0ecbe2c5e8d9fa6f5" vpc_cidr = "172.16.0.0/16" vpc_id = "vpc-032137149e217f66f"
+private_sub_1 = "subnet-041150e8ff8ca2be7" 
+private_sub_2 = "subnet-07a9674276991c52f" 
+public_sub_1 = "subnet-04dccb09bb97aba9a" 
+public_sub_2 = "subnet-0ecbe2c5e8d9fa6f5" 
+vpc_cidr = "172.16.0.0/16" 
+vpc_id = "vpc-032137149e217f66f"
 ```
