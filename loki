@@ -1,5 +1,5 @@
-https://spacelift.io/blog/prometheus-kubernetes pro
-
+prom https://spacelift.io/blog/prometheus-kubernetes pro
+dashboards https://medium.com/@dotdc/a-set-of-modern-grafana-dashboards-for-kubernetes-4b989c72a4b2
 
 az aks command invoke \
   --resource-group shop-local-infra-opt \
