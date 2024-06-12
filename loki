@@ -5,3 +5,27 @@ az aks command invoke \
   --resource-group shop-local-infra-opt \
   --name shop-local-aks-cluster \
   --command "helm repo add grafana https://grafana.github.io/helm-charts && helm repo update && helm install loki grafana/loki-stack -n shop-local-dev --set grafana.enabled=false"
+
+
+
+
+az aks command invoke   --resource-group shop-local-infra-opt   --name shop-local-aks-cluster   --command "kubectl apply -f loki-ingress.yaml -n loki" --file .
+
+# once done aks-kubectl get ingress -n loki 
+
+
+az aks command invoke \
+  --resource-group shop-local-infra-opt \
+  --name shop-local-aks-cluster \
+  --command "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && helm repo update && helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n loki "
+
+
+az aks command invoke   --resource-group shop-local-infra-opt   --name shop-local-aks-cluster   --command "kubectl apply -f loki-ingress.yaml -n loki" --file .
+
+extra 
+az aks command invoke \
+  --resource-group shop-local-infra-opt \
+  --name shop-local-aks-cluster \
+  --command "kubectl get svc loki -n loki -o yaml" > loki-service.yaml
+
+az aks command invoke   --resource-group shop-local-infra-opt   --name shop-local-aks-cluster   --command "kubectl patch svc loki -n loki -p '{\"spec\": {\"type\": \"NodePort\"}}'"
