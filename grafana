@@ -9,3 +9,6 @@ sudo apt-get install grafana
 sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server
+
+
+#default username : admin and pass : admin
