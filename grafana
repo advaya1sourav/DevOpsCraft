@@ -12,3 +12,7 @@ sudo systemctl status grafana-server
 
 
 #default username : admin and pass : admin
+
+#check
+
+efef
